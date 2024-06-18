@@ -7,7 +7,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.onSurface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -29,12 +29,18 @@ class LoginPage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-
              const SizedBox(height: 25),
-
             // email textfield
-            MyTextField(),
+            const MyTextField(
+              hintText: "Email",
+              obscureText: false,
+            ),
+            const SizedBox(height: 10),
             // pw textfield
+            const MyTextField(
+              hintText: "Password",
+              obscureText: true,
+            ),
 
             // login button
 

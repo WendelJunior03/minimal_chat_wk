@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:minimal_chat_wk/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  // email and pw text controllers 
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _pwController = TextEditingController();
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +35,17 @@ class LoginPage extends StatelessWidget {
             ),
              const SizedBox(height: 25),
             // email textfield
-            const MyTextField(
+            MyTextField(
               hintText: "Email",
               obscureText: false,
+              controller: _emailController,
             ),
             const SizedBox(height: 10),
             // pw textfield
-            const MyTextField(
+            MyTextField(
               hintText: "Password",
               obscureText: true,
+              controller: _pwController,
             ),
 
             // login button

@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:minimal_chat_wk/components/my_button.dart';
 import 'package:minimal_chat_wk/components/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
+  RegisterPage({super.key});
   // email and pw text controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwController = TextEditingController();
-  LoginPage({super.key});
+  final TextEditingController _confirmPwController = TextEditingController();
 
-  void login() {}
-
+// Register method
+  void register() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +30,23 @@ class LoginPage extends StatelessWidget {
 
             // welcome back message
             Text(
-              "Welcome back, you've been missed!",
+              "Let's Create an account for you",
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 25),
+
             // email textfield
             MyTextField(
               hintText: "Email",
               obscureText: false,
               controller: _emailController,
             ),
+
             const SizedBox(height: 10),
+
             // pw textfield
             MyTextField(
               hintText: "Password",
@@ -50,11 +54,20 @@ class LoginPage extends StatelessWidget {
               controller: _pwController,
             ),
 
+            const SizedBox(height: 10),
+
+            // Confirm Pw textField
+            MyTextField(
+              hintText: "Confirm password",
+              obscureText: true,
+              controller: _confirmPwController,
+            ),
+
             const SizedBox(height: 25),
             // login button
             MyButton(
-              text: "Login",
-              onTap: login,
+              text: "Register",
+              onTap: register,
             ),
             const SizedBox(height: 25),
             // register now

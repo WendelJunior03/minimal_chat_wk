@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "580477946115",
+    "project_id": "chatapp-wk-mini",
+    "storage_bucket": "chatapp-wk-mini.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580477946115:android:1ac32b4c8e51062b00c136",
+        "android_client_info": {
+          "package_name": "com.example.minimalchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFetfqS7OGPrQGOXN3QZ-GGWThebQHCS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

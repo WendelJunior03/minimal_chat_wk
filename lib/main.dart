@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_chat_wk/auth/login_or_register.dart';
+import 'package:minimal_chat_wk/firebase_options.dart';
 import 'package:minimal_chat_wk/themes/light_mode.dart';
 
-void main() {
+void main() async {
+  //Aqui estamos chamando uma funcao para inicializacao do firebase.
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -14,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: const LoginOrRegister(),
       theme: lightMode,
     );
   }

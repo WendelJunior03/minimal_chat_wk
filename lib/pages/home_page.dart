@@ -17,10 +17,12 @@ class HomePage extends StatelessWidget {
         title: Text("Home"),
         actions: [
           // Logout button
-          IconButton(onPressed: logout, icon: Icon(Icons.logout),)
+          IconButton(
+            onPressed: logout,
+            icon: Icon(Icons.logout),
+          )
         ],
       ),
-
       drawer: const MyDrawer(),
     );
   }

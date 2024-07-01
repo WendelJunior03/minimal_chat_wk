@@ -4,23 +4,24 @@ import 'package:minimal_chat_wk/auth/login_or_register.dart';
 import 'package:minimal_chat_wk/pages/home_page.dart';
 
 class AuthGate extends StatelessWidget {
-
   const AuthGate({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), 
-      builder: (context, snapshot) {
-        // user is logged in 
-        if (snapshot.hasData) {
-          return const HomePage();
-        } 
-        // user is Not logged in 
-        else {
-          return const LoginOrRegister();
-        }
-      },),
+      body: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          // user is logged in
+          if (snapshot.hasData) {
+            return const HomePage();
+          }
+          // user is Not logged in
+          else {
+            return const LoginOrRegister();
+          }
+        },
+      ),
     );
   }
 }

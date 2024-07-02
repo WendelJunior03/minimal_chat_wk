@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_chat_wk/services/auth/auth_service.dart';
+import 'package:minimal_chat_wk/pages/settings_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  void logout() {
+    final auth = AuthService();
+    auth.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +41,10 @@ class MyDrawer extends StatelessWidget {
                     leading: const Icon(
                       Icons.home,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      // Pop the drower
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
 
@@ -48,7 +58,18 @@ class MyDrawer extends StatelessWidget {
                       Icons.settings,
                       color: Theme.of(context).colorScheme.primary,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      // Pop the drawer
+                      Navigator.pop(context);
+
+                      // navigate to settings page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SettingsPage(),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -56,7 +77,7 @@ class MyDrawer extends StatelessWidget {
 
             // logout list tile
             Padding(
-              padding: const EdgeInsets.only(left: 25.0, bottom: 20.0),
+              padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
               child: ListTile(
                 iconColor: Theme.of(context).colorScheme.primary,
                 title: const Text(
@@ -65,7 +86,7 @@ class MyDrawer extends StatelessWidget {
                 leading: const Icon(
                   Icons.logout,
                 ),
-                onTap: () {},
+                onTap: logout,
               ),
             ),
           ],

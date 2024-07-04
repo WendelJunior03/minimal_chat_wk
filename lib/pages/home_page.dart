@@ -14,8 +14,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text("Home"),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey,
+        elevation: 0,
       ),
       drawer: const MyDrawer(),
       body: _buildUserList(),
@@ -42,7 +46,8 @@ class HomePage extends StatelessWidget {
           children: snapshot.data!
               .map<Widget>(
                 (userData) => _buildUserListItem(userData, context),
-              ).toList(),
+              )
+              .toList(),
         );
       },
     );
@@ -52,19 +57,24 @@ class HomePage extends StatelessWidget {
   Widget _buildUserListItem(
       Map<String, dynamic> userData, BuildContext context) {
     // display all user except current user
-    return UserTile(
-      text: userData["email"],
-      onTap: () {
-        // tapped on a user -> go to chat page
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatPage(
-              receiverEmail: userData["email"],
+    if (userData["email"] != _authService.getCurrentUser()!.email) {
+      return UserTile(
+        text: userData["email"],
+        onTap: () {
+          // tapped on a user -> go to chat page
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatPage(
+                receiverEmail: userData["email"],
+                receiverID: userData['uid'],
+              ),
             ),
-          ),
-        );
-      },
-    );
+          );
+        },
+      );
+    } else {
+      return Container();
+    }
   }
 }

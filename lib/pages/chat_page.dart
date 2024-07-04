@@ -40,7 +40,7 @@ class _ChatPageState extends State<ChatPage> {
         // then the amount of remaining space will be calculated
         // then scroll down
         Future.delayed(
-          const Duration(milliseconds: 500),
+          const Duration(milliseconds: 300),
           () => scrollDown(),
         );
       }

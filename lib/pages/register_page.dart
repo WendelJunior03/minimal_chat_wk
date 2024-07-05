@@ -16,12 +16,12 @@ class RegisterPage extends StatelessWidget {
 // Register method
   void register(BuildContext context) {
     // get auth service
-    final _auth = AuthService();
+    final auth = AuthService();
 
     // passwords match -> create user
     if (_pwController.text == _confirmPwController.text) {
       try {
-        _auth.signUpWhitEmailPassword(
+        auth.signUpWhitEmailPassword(
           _emailController.text,
           _pwController.text,
         );
